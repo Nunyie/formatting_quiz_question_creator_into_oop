@@ -33,3 +33,14 @@ class QuizCreator:
             for option, answer in answers.items():
                 file.write(f"{option}: {answer}\n")
             file.write(f"Correct Answer: {correct_answer.upper()}\n\n")
+
+    def main(self):
+        while True:
+            question = self.get_question()
+            if question is None:
+                print("Exiting the quiz creator.")
+                break
+            answers = self.get_answers()
+            correct_answer = self.get_correct_answer(answers)
+            self.save_question_to_file(question, answers, correct_answer)
+            print("Question and answers saved to question_bank.txt.")
