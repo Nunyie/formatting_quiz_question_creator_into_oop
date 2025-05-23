@@ -6,3 +6,9 @@
 class QuizCreator:
     def __init__(self):
         self.question_bank_file = 'question_bank.txt'
+
+    def get_question(self):
+        question = input("Enter a question (or type 'exit' to finish): ")
+        if question.lower() == 'exit':
+            return None
+        return question    
