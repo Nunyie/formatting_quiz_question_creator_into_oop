@@ -11,4 +11,11 @@ class QuizCreator:
         question = input("Enter a question (or type 'exit' to finish): ")
         if question.lower() == 'exit':
             return None
-        return question    
+        return question
+    
+    def get_answers(self):
+        answers = {}
+        for option in ['a', 'b', 'c', 'd']:
+            answer = input(f"Enter answer option {option}: ")
+            answers[option] = answer
+        return answers
