@@ -10,3 +10,27 @@ class Quiz:
         self.quiz_data = []
         self.score = 0
         self.total_questions = 0
+
+    def load_quiz_data(self):
+        """Reads the text file created by the quiz creator and loads the quiz data."""
+        try:
+            with open(self.file_name, 'r') as file:
+                lines = [line.strip() for line in file if line.strip()]
+
+            # Reads txt file in groups of 6 lines (1 question, 4 answers, and 1 correct answer)
+            for i in range(0, len(lines), 6):
+                block = lines[i:i+6]
+                if len(block) == 6 and block[0].startswith("Question:"):
+                    self.quiz_data.append(block)
+
+        except FileNotFoundError:
+            print(f"Error: The file '{self.file_name}' was not found.")
+            return
+        
+        if not self.quiz_data:
+            print("No questions found in txt file.")
+            return
+        
+        # Shuffle the quiz data to randomize the order of questions
+        random.shuffle(self.quiz_data)
+        self.total_questions = len(self.quiz_data)
