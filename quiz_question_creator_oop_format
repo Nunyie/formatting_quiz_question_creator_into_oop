@@ -19,3 +19,10 @@ class QuizCreator:
             answer = input(f"Enter answer option {option}: ")
             answers[option] = answer
         return answers
+    
+    def get_correct_answer(self, answers):
+        correct_answer = input("Enter the correct answer option (a, b, c, or d): ").lower()
+        while correct_answer not in answers:
+            print("Invalid option. Please enter a, b, c, or d.")
+            correct_answer = input("Enter the correct answer option (a, b, c, or d): ").lower()
+        return correct_answer
