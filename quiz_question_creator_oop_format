@@ -26,3 +26,10 @@ class QuizCreator:
             print("Invalid option. Please enter a, b, c, or d.")
             correct_answer = input("Enter the correct answer option (a, b, c, or d): ").lower()
         return correct_answer
+    
+    def save_question_to_file(self, question, answers, correct_answer):
+        with open(self.question_bank_file, 'a') as file:
+            file.write(f"Question: {question}\n")
+            for option, answer in answers.items():
+                file.write(f"{option}: {answer}\n")
+            file.write(f"Correct Answer: {correct_answer.upper()}\n\n")
