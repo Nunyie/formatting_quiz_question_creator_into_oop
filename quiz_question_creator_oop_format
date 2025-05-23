@@ -44,3 +44,7 @@ class QuizCreator:
             correct_answer = self.get_correct_answer(answers)
             self.save_question_to_file(question, answers, correct_answer)
             print("Question and answers saved to question_bank.txt.")
+
+if __name__ == "__main__":
+    quiz_creator = QuizCreator()
+    quiz_creator.main()
